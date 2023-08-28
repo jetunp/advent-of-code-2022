@@ -29,17 +29,16 @@ opponent_move = ''
 your_move = ''
 your_score = 0
 score_dict = {'A': 1, 'B': 2, 'C': 3, 'X': 1, 'Y': 2, 'Z': 3}
-result = [3, 6]
 with open('../util/input.txt') as file:
     for line in file:
         values = line.split()
         opponent_move, your_move = values[0], values[1]
         # draw scenario
         if (opponent_move == 'A' and your_move == 'X') or (opponent_move == 'B' and your_move == 'Y') or (opponent_move == 'C' and your_move == 'Z'):
-            your_score += result[0]+score_dict[your_move]
+            your_score += 3+score_dict[your_move]
         # win scenario
         if (opponent_move == 'A' and your_move == 'Y') or (opponent_move == 'B' and your_move == 'Z') or (opponent_move == 'C' and your_move == 'X'):
-            your_score += result[1]+score_dict[your_move]
+            your_score += 6+score_dict[your_move]
         # Lose scenario
         if (opponent_move == 'A' and your_move == 'Z') or (opponent_move == 'B' and your_move == 'X') or (opponent_move == 'C' and your_move == 'Y'):
             your_score += score_dict[your_move]
